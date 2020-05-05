@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Bar from "./bar";
+import generateRandomValues from "../Util/generateRandomValues";
 
 class Array extends Component {
   state = { length: 0, values: [] };
 
   constructor(props) {
     super(props);
-    this.state = { length: 5, values: [140, 50, 120, 75, 100] };
+    this.state = { length: 5, values: generateRandomValues(5) };
   }
 
   style = {
