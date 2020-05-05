@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Bar from "./bar";
 import generateRandomValues from "../Util/generateRandomValues";
+import immediateSort from "./../Util/Algorithms/immediateSort";
 
 class Array extends Component {
   state = { length: 0, values: [] };
@@ -17,9 +18,14 @@ class Array extends Component {
     borderStyle: "solid"
   };
 
+  handleClick = () => {
+    const values = immediateSort(this.state.values);
+    this.setState({ values });
+  };
+
   render() {
     return (
-      <div className="row" style={this.style}>
+      <div className="row" style={this.style} onClick={this.handleClick}>
         {this.state.values.map(value => (
           <Bar criticalValue={300} value={value} />
         ))}
