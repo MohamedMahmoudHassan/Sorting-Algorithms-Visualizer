@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 
-class Bar extends Component {
-  state = { value: 0 };
-
-  style = {
+const Bar = ({ value, criticalValue }) => {
+  const style = {
     width: 100,
-    height: this.props.value,
+    height: value,
     borderWidth: 1,
     borderStyle: "solid",
-    marginTop: this.props.criticalValue - this.props.value
+    marginTop: criticalValue - value
   };
 
-  render() {
-    return <div style={this.style}>{this.props.value}</div>;
-  }
-}
+  return <div style={style}>{value}</div>;
+};
 
 export default Bar;
