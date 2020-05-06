@@ -6,7 +6,7 @@ export default function bubbleSort(arr) {
   for (var i = 0; i < length - 1; i++) {
     for (var j = 0; j < length - 1; j++) {
       sortSteps.push({ id: c++, el1: j, el2: j + 1, type: "compare" });
-      if (arr[j + 1] < arr[j]) {
+      if (arr[j + 1].value < arr[j].value) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
         sortSteps.push({ id: c++, el1: j, el2: j + 1, type: "swap" });
       }
