@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Bar from "./bar";
 import generateRandomElements from "../Util/generateRandomElements";
 import immediateSort from "./../Util/Algorithms/immediateSort";
+import bubbleSort from "./../Util/Algorithms/bubbleSort";
 
 class Array extends Component {
   state = { elements: [], sortSteps: {}, status: {} };
@@ -12,6 +13,14 @@ class Array extends Component {
       elements: generateRandomElements(9),
       status: "unsorted"
     };
+  }
+
+  componentDidMount() {
+    const sortSteps = {
+      stepsList: bubbleSort(this.state.elements),
+      currentStep: 0
+    };
+    this.setState({ sortSteps });
   }
 
   style = {
