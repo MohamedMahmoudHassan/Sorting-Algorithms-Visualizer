@@ -1,15 +1,15 @@
 import React from "react";
 
-const Bar = ({ value, criticalValue }) => {
+const Bar = ({ element, criticalValue }) => {
   const style = {
     width: 100,
-    height: value,
+    height: element.value,
     borderWidth: 1,
     borderStyle: "solid",
-    marginTop: criticalValue - value
+    marginTop: criticalValue - element.value
   };
 
-  return <div style={style}>{value}</div>;
+  return <div style={style}>{element.value}</div>;
 };
 
 export default Bar;
