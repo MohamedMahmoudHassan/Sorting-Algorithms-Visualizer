@@ -4,11 +4,14 @@ import generateRandomElements from "../Util/generateRandomElements";
 import immediateSort from "./../Util/Algorithms/immediateSort";
 
 class Array extends Component {
-  state = { length: 0, elements: [] };
+  state = { elements: [], sortSteps: {}, status: {} };
 
   constructor(props) {
     super(props);
-    this.state = { length: 9, elements: generateRandomElements(9) };
+    this.state = {
+      elements: generateRandomElements(9),
+      status: "unsorted"
+    };
   }
 
   style = {
@@ -19,8 +22,8 @@ class Array extends Component {
   };
 
   handleClick = () => {
-    const elements = immediateSort(this.state.elements);
-    this.setState({ elements });
+    const status = this.state.status;
+    if (status === "unsorted") this.setState({ status: "sorting" });
   };
 
   render() {
