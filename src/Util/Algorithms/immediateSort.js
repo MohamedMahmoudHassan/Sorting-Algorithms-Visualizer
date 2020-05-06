@@ -1,6 +1,6 @@
-export default function immediateSort(array) {
-  array.sort(function(a, b) {
-    return a - b;
+export default function immediateSort(arr) {
+  arr.sort(function(a, b) {
+    return a.value - b.value;
   });
-  return array;
+  return arr;
 }
