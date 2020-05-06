@@ -18,10 +18,18 @@ class Array extends Component {
   componentDidMount() {
     const stepsList = bubbleSort(this.state.elements);
     const sortSteps = {
-      stepsList ,
+      stepsList,
       currentStep: stepsList[0]
     };
     this.setState({ sortSteps });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    clearInterval(this.sortInterval);
+    if (prevState.status === "sorted") return;
+    this.sortInterval = setInterval(() => {
+      this.handleStatusUpdate(prevState.currentStep);
+    }, 1000);
   }
 
   style = {
