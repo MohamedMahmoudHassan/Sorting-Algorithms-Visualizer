@@ -6,7 +6,8 @@ const Bar = ({ element, criticalValue }) => {
     height: element.value,
     borderWidth: 1,
     borderStyle: "solid",
-    marginTop: criticalValue - element.value
+    marginTop: criticalValue - element.value,
+    textAlign: "center"
   };
 
   return <div style={style}>{element.value}</div>;
