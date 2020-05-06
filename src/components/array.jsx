@@ -16,7 +16,7 @@ class Array extends Component {
   }
 
   componentDidMount() {
-    const stepsList = bubbleSort(this.state.elements);
+    const stepsList = bubbleSort([...this.state.elements]);
     const sortSteps = {
       stepsList,
       currentStep: stepsList[0]
@@ -26,11 +26,47 @@ class Array extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     clearInterval(this.sortInterval);
-    if (prevState.status === "sorted") return;
+    if (this.state.status === "unsorted" || prevState.status === "sorted")
+      return;
     this.sortInterval = setInterval(() => {
-      this.handleStatusUpdate(prevState.currentStep);
-    }, 1000);
+      this.handleStatusUpdate(
+        prevState.status,
+        prevState.sortSteps.currentStep
+      );
+    }, 50);
   }
+
+  applyStepEffect = (elements, type) => {
+    if (type === "swap")
+      [elements[0], elements[1]] = [elements[1], elements[0]];
+    return elements;
+  };
+
+  handleStatusUpdate = (prevStatus, prevStep) => {
+    const elements = [...this.state.elements];
+    const { sortSteps } = this.state;
+    let { currentStep } = sortSteps;
+    let currentStatus = this.state.status;
+
+    if (currentStatus === "sorting") {
+      [
+        elements[currentStep.el1],
+        elements[currentStep.el2]
+      ] = this.applyStepEffect(
+        [elements[currentStep.el1], elements[currentStep.el2]],
+        currentStep.type
+      );
+
+      if (currentStep.id + 1 === sortSteps.stepsList.length) {
+        currentStep = {};
+        currentStatus = "sorted";
+      } else currentStep = sortSteps.stepsList[currentStep.id + 1];
+
+      sortSteps.currentStep = currentStep;
+    }
+
+    this.setState({ elements, status: currentStatus, sortSteps });
+  };
 
   style = {
     width: 1000,
