@@ -16,9 +16,10 @@ class Array extends Component {
   }
 
   componentDidMount() {
+    const stepsList = bubbleSort(this.state.elements);
     const sortSteps = {
-      stepsList: bubbleSort(this.state.elements),
-      currentStep: 0
+      stepsList ,
+      currentStep: stepsList[0]
     };
     this.setState({ sortSteps });
   }
