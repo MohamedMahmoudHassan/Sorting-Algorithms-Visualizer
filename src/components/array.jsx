@@ -35,7 +35,7 @@ class Array extends Component {
         prevState.status,
         prevState.sortSteps.currentStep
       );
-    }, 1);
+    }, this.props.sortInterval);
   }
 
   applyStepEffect = (elements, type) => {
