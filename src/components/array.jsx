@@ -10,7 +10,7 @@ class Array extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      elements: generateRandomElements(9),
+      elements: generateRandomElements(99),
       status: "unsorted"
     };
   }
@@ -34,7 +34,7 @@ class Array extends Component {
         prevState.status,
         prevState.sortSteps.currentStep
       );
-    }, 1000);
+    }, 1);
   }
 
   applyStepEffect = (elements, type) => {
