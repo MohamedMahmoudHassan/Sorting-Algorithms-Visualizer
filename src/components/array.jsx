@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Bar from "./bar";
-import generateRandomElements from "../Util/generateRandomElements";
 import sortWithSteps from "./../Util/sortWithSteps";
 
 class Array extends Component {
@@ -9,7 +8,7 @@ class Array extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      elements: generateRandomElements(50),
+      elements: this.props.elements,
       status: "unsorted"
     };
   }
