@@ -1,8 +1,14 @@
 import React from "react";
 
 const Bar = ({ element, criticalValue }) => {
+  const colorsSchema = {
+    normal: "#D5B588",
+    isInCompare: "#CA625A",
+    isInSwap: "#39274C"
+  }
+
   const style = {
-    width: 100,
+    width: 10,
     height: element.value,
     borderWidth: 1,
     borderStyle: "solid",
@@ -10,13 +16,13 @@ const Bar = ({ element, criticalValue }) => {
     textAlign: "center",
     backgroundColor:
       element.isInCompare === true
-        ? "yellow"
+        ? colorsSchema.isInCompare
         : element.isInSwap === true
-        ? "blue"
-        : "white"
+        ? colorsSchema.isInSwap
+        : colorsSchema.normal
   };
 
-  return <div style={style}>{element.value}</div>;
+  return <div style={style}></div>;
 };
 
 export default Bar;
