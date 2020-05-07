@@ -7,7 +7,13 @@ const Bar = ({ element, criticalValue }) => {
     borderWidth: 1,
     borderStyle: "solid",
     marginTop: criticalValue - element.value,
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor:
+      element.isInCompare === true
+        ? "yellow"
+        : element.isInSwap === true
+        ? "blue"
+        : "white"
   };
 
   return <div style={style}>{element.value}</div>;

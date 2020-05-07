@@ -28,25 +28,40 @@ class Array extends Component {
     clearInterval(this.sortInterval);
     if (this.state.status === "unsorted" || prevState.status === "sorted")
       return;
+
     this.sortInterval = setInterval(() => {
       this.handleStatusUpdate(
         prevState.status,
         prevState.sortSteps.currentStep
       );
-    }, 50);
+    }, 1000);
   }
 
   applyStepEffect = (elements, type) => {
-    if (type === "swap")
+    if (type === "swap") {
       [elements[0], elements[1]] = [elements[1], elements[0]];
+      elements[0].isInSwap = elements[1].isInSwap = true;
+    } else elements[0].isInCompare = elements[1].isInCompare = true;
+    return elements;
+  };
+
+  clearStepEffect = elements => {
+    elements[0].isInCompare = elements[1].isInCompare = false;
+    elements[0].isInSwap = elements[1].isInSwap = false;
     return elements;
   };
 
   handleStatusUpdate = (prevStatus, prevStep) => {
     const elements = [...this.state.elements];
-    const { sortSteps } = this.state;
+    const sortSteps = { ...this.state.sortSteps };
     let { currentStep } = sortSteps;
     let currentStatus = this.state.status;
+
+    if (prevStatus === "sorting")
+      [elements[prevStep.el1], elements[prevStep.el2]] = this.clearStepEffect([
+        elements[prevStep.el1],
+        elements[prevStep.el2]
+      ]);
 
     if (currentStatus === "sorting") {
       [
