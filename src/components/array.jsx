@@ -3,6 +3,7 @@ import Bar from "./bar";
 import generateRandomElements from "../Util/generateRandomElements";
 import immediateSort from "./../Util/Algorithms/immediateSort";
 import bubbleSort from "./../Util/Algorithms/bubbleSort";
+import selectionSort from "./../Util/Algorithms/selectionSort";
 
 class Array extends Component {
   state = { elements: [], sortSteps: {}, status: {} };
@@ -16,7 +17,7 @@ class Array extends Component {
   }
 
   componentDidMount() {
-    const stepsList = bubbleSort([...this.state.elements]);
+    const stepsList = selectionSort([...this.state.elements]);
     const sortSteps = {
       stepsList,
       currentStep: stepsList[0]
