@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="container">
       <h1>Sorting Algorithms Visualizer</h1>
-      <Array sortInterval={100} />
+      <Array sortInterval={50} sortAlgorithm="selectionSort" />
     </div>
   );
 }

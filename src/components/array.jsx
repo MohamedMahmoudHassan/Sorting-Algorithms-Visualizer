@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Bar from "./bar";
 import generateRandomElements from "../Util/generateRandomElements";
-import immediateSort from "./../Util/Algorithms/immediateSort";
-import bubbleSort from "./../Util/Algorithms/bubbleSort";
-import selectionSort from "./../Util/Algorithms/selectionSort";
+import sortWithSteps from "./../Util/sortWithSteps";
 
 class Array extends Component {
   state = { elements: [], sortSteps: {}, status: {} };
@@ -17,7 +15,7 @@ class Array extends Component {
   }
 
   componentDidMount() {
-    const stepsList = selectionSort([...this.state.elements]);
+    const stepsList = sortWithSteps([...this.state.elements], this.props.sortAlgorithm);
     const sortSteps = {
       stepsList,
       currentStep: stepsList[0]
@@ -27,14 +25,10 @@ class Array extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     clearInterval(this.sortInterval);
-    if (this.state.status === "unsorted" || prevState.status === "sorted")
-      return;
+    if (this.state.status === "unsorted" || prevState.status === "sorted") return;
 
     this.sortInterval = setInterval(() => {
-      this.handleStatusUpdate(
-        prevState.status,
-        prevState.sortSteps.currentStep
-      );
+      this.handleStatusUpdate(prevState.status, prevState.sortSteps.currentStep);
     }, this.props.sortInterval);
   }
 
@@ -65,10 +59,7 @@ class Array extends Component {
       ]);
 
     if (currentStatus === "sorting") {
-      [
-        elements[currentStep.el1],
-        elements[currentStep.el2]
-      ] = this.applyStepEffect(
+      [elements[currentStep.el1], elements[currentStep.el2]] = this.applyStepEffect(
         [elements[currentStep.el1], elements[currentStep.el2]],
         currentStep.type
       );
@@ -86,7 +77,7 @@ class Array extends Component {
 
   style = {
     width: 1000,
-    height: 300,
+    height: 500,
     borderWidth: 1,
     borderStyle: "solid"
   };
@@ -100,7 +91,7 @@ class Array extends Component {
     return (
       <div className="row" style={this.style} onClick={this.handleClick}>
         {this.state.elements.map(element => (
-          <Bar criticalValue={300} element={element} />
+          <Bar criticalValue={500} element={element} />
         ))}
       </div>
     );
