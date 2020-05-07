@@ -3,7 +3,8 @@ export default function generateRandomElements(length) {
   while (length--) {
     values.push({
       value: Math.floor(Math.random(1) * 200 + 40),
-      comparisonElement: false
+      isInComparison: false,
+      isInSwap: false
     });
   }
   return values;
