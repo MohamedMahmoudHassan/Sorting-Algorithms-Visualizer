@@ -10,7 +10,7 @@ class Array extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      elements: generateRandomElements(99),
+      elements: generateRandomElements(50),
       status: "unsorted"
     };
   }

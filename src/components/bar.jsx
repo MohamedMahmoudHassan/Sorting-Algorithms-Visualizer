@@ -8,11 +8,12 @@ const Bar = ({ element, criticalValue }) => {
   }
 
   const style = {
-    width: 10,
+    width: 17,
     height: element.value,
     borderWidth: 1,
     borderStyle: "solid",
     marginTop: criticalValue - element.value,
+    marginLeft: 2,
     textAlign: "center",
     backgroundColor:
       element.isInCompare === true
