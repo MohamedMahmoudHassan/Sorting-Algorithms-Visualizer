@@ -1,8 +1,10 @@
-export default function getSortStep(originalArr, operation, index1, index2) {
+export default function getSortStep(originalArr, operation, elementsInOperation) {
   const arr = JSON.parse(JSON.stringify(originalArr));
 
-  if (operation === "compare") arr[index1].isInComparison = arr[index2].isInComparison = true;
-  else arr[index1].isInSwap = arr[index2].isInSwap = true;
+  elementsInOperation.forEach(id => {
+    if (operation === "compare") arr[id].isInComparison = true;
+    else arr[id].isInSwap = true;
+  });
 
   return arr;
 }
