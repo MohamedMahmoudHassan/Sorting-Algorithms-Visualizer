@@ -102,7 +102,11 @@ class App extends Component {
           arrayLength={array.length}
           changeArrayLength={this.changeArrayProp}
         />
-        <SortControlBar handleSortStart={this.handleSortStart} />
+        <SortControlBar
+          handleSortStart={this.handleSortStart}
+          sortInterval={sortInterval}
+          changeSortInterval={this.changeSortProp}
+        />
       </div>
     );
   }
