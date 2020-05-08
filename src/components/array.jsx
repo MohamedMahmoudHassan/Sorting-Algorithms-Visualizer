@@ -27,11 +27,9 @@ class Array extends Component {
   handleStatusUpdate = () => {
     let { sortSteps, currentStepId, status } = this.state;
 
-    if (status === "sorting") {
-      if (currentStepId + 1 === sortSteps.length) {
-        status = "sorted";
-      } else currentStepId++;
-    }
+    if (currentStepId + 1 === sortSteps.length) {
+      status = "sorted";
+    } else currentStepId++;
 
     this.setState({ status, currentStepId });
   };
