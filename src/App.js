@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
       sortInterval: 10,
-      sortAlgorithm: "bubbleSort",
+      sortAlgorithm: "selectionSort",
       arrayElements: generateRandomElements(50)
     };
   }
