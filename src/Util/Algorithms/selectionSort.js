@@ -3,7 +3,6 @@ import getSortStep from "./../getSortStep";
 export default function selectionSort(arr) {
   let sortSteps = [];
   const length = arr.length;
-  let c = 0;
   let minIndex;
 
   for (var i = 0; i < length - 1; i++) {
@@ -15,5 +14,7 @@ export default function selectionSort(arr) {
     [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
     sortSteps.push(getSortStep(arr, "swap", i, minIndex));
   }
+
+  sortSteps.push(arr);
   return sortSteps;
 }
