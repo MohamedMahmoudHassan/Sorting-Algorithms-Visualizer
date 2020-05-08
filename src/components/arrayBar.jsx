@@ -1,18 +1,16 @@
 import React from "react";
 
-const Bar = ({ element, maxValue, barsNumber }) => {
+const ArrayBar = ({ element, maxValue, barsNumber }) => {
   const colorsSchema = {
-    normal: "#D5B588",
-    isInComparison: "#CA625A",
-    isInSwap: "#39274C"
+    normal: "#F8B530",
+    isInComparison: "#68CBD0",
+    isInSwap: "#08872C"
   }
 
   const style = {
     width: 950 / barsNumber - 2,
     height: element.value,
-    borderWidth: 1,
-    borderStyle: "solid",
-    marginTop: maxValue - element.value - 1,
+    marginTop: maxValue - element.value - 3,
     marginLeft: 2,
     textAlign: "center",
     backgroundColor:
@@ -26,4 +24,4 @@ const Bar = ({ element, maxValue, barsNumber }) => {
   return <div style={style}></div>;
 };
 
-export default Bar;
+export default ArrayBar;

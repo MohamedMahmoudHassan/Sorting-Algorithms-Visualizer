@@ -1,5 +1,5 @@
 import React from "react";
-import Bar from "./bar";
+import ArrayBar from "./arrayBar";
 
 const Array = ({ onClick, elements }) => {
   const style = {
@@ -12,7 +12,7 @@ const Array = ({ onClick, elements }) => {
   return (
     <div className="row" style={style} onClick={onClick}>
       {elements.map(element => (
-        <Bar maxValue={500} element={element} barsNumber={elements.length} />
+        <ArrayBar maxValue={500} element={element} barsNumber={elements.length} />
       ))}
     </div>
   );
