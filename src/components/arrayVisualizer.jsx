@@ -11,9 +11,11 @@ const ArrayVisualizer = ({ onClick, elements }) => {
 
   return (
     <div className="row" style={style} onClick={onClick}>
-      {elements.map(element => (
-        <ArrayBar maxValue={500} element={element} barsNumber={elements.length} />
-      ))}
+      <div className="row" style={{ margin: "auto" }}>
+        {elements.map(element => (
+          <ArrayBar maxValue={500} element={element} barsNumber={elements.length} />
+        ))}
+      </div>
     </div>
   );
 };
