@@ -1,23 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import Bar from "./bar";
 
-class Array extends Component {
-  style = {
+const Array = ({ onClick, elements }) => {
+  const style = {
     width: 1000,
     height: 500,
     borderWidth: 1,
     borderStyle: "solid"
   };
 
-  render() {
-    return (
-      <div className="row" style={this.style} onClick={this.props.onClick}>
-        {this.props.elements.map(element => (
-          <Bar maxValue={500} element={element} barsNumber={this.props.elements.length} />
-        ))}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="row" style={style} onClick={onClick}>
+      {elements.map(element => (
+        <Bar maxValue={500} element={element} barsNumber={elements.length} />
+      ))}
+    </div>
+  );
+};
 
 export default Array;
