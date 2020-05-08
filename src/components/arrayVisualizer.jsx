@@ -1,7 +1,7 @@
 import React from "react";
 import ArrayBar from "./arrayBar";
 
-const Array = ({ onClick, elements }) => {
+const ArrayVisualizer = ({ onClick, elements }) => {
   const style = {
     width: 1000,
     height: 500,
@@ -18,4 +18,4 @@ const Array = ({ onClick, elements }) => {
   );
 };
 
-export default Array;
+export default ArrayVisualizer;

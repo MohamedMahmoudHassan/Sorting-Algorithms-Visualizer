@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Array from "./components/array";
+import ArrayVisualizer from "./components/arrayVisualizer";
 import generateRandomElements from "./Util/generateRandomElements";
 import sortWithSteps from "./Util/sortWithSteps";
 import ControlBar from "./components/controlBar";
@@ -78,7 +78,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Sorting Algorithms Visualizer</h1>
-        <Array
+        <ArrayVisualizer
           sortInterval={sortInterval}
           sortAlgorithm={sortAlgorithm}
           onClick={this.handleSortStart}
