@@ -2,7 +2,7 @@ import React from "react";
 import ActionButton from "./actionButton";
 import Input from "./input";
 
-const ControlBar = ({ arrayLength, generateNewArray, changeArrayLength }) => {
+const ArrayControlBar = ({ arrayLength, generateNewArray, changeArrayLength }) => {
   return (
     <div>
       <Input
@@ -21,4 +21,4 @@ const ControlBar = ({ arrayLength, generateNewArray, changeArrayLength }) => {
   );
 };
 
-export default ControlBar;
+export default ArrayControlBar;

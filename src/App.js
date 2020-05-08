@@ -3,7 +3,7 @@ import "./App.css";
 import ArrayVisualizer from "./components/arrayVisualizer";
 import generateRandomElements from "./Util/generateRandomElements";
 import sortWithSteps from "./Util/sortWithSteps";
-import ControlBar from "./components/controlBar";
+import ArrayControlBar from "./components/arrayControlBar";
 
 class App extends Component {
   state = {
@@ -79,6 +79,12 @@ class App extends Component {
     this.setState({ array });
   };
 
+  changeSortProp = ({ currentTarget: input }) => {
+    const state = { ...this.state };
+    state[input.name] = input.value;
+    this.setState(state);
+  };
+
   render() {
     const { sortInterval, sortAlgorithm, array } = this.state;
     return (
@@ -90,7 +96,7 @@ class App extends Component {
           onClick={this.handleSortStart}
           elements={array.sortSteps[array.currentStepId]}
         />
-        <ControlBar
+        <ArrayControlBar
           generateNewArray={this.generateNewArray}
           arrayLength={array.length}
           changeArrayLength={this.changeArrayProp}
