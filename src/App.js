@@ -4,6 +4,7 @@ import ArrayVisualizer from "./components/arrayVisualizer";
 import generateRandomElements from "./Util/generateRandomElements";
 import sortWithSteps from "./Util/sortWithSteps";
 import ArrayControlBar from "./components/arrayControlBar";
+import SortControlBar from "./components/sortControlBar";
 
 class App extends Component {
   state = {
@@ -101,6 +102,7 @@ class App extends Component {
           arrayLength={array.length}
           changeArrayLength={this.changeArrayProp}
         />
+        <SortControlBar handleSortStart={this.handleSortStart} />
       </div>
     );
   }
