@@ -3,26 +3,29 @@ import "./App.css";
 import Array from "./components/array";
 import generateRandomElements from "./Util/generateRandomElements";
 import sortWithSteps from "./Util/sortWithSteps";
+import ActionButton from "./components/actionButton";
 
 class App extends Component {
   state = {
-    array: { elements: [], sortSteps: [], currentStepId: 0, status: "" },
+    array: { elements: [], sortSteps: [], currentStepId: 0, status: "", length: 0 },
     sortInterval: 0,
     sortAlgorithm: ""
   };
 
   constructor() {
     super();
-    const arrayElements = generateRandomElements(15);
+    const length = 100;
+    const arrayElements = generateRandomElements(length);
     this.state = {
       array: {
         elements: arrayElements,
         status: "unsorted",
         currentStepId: 0,
-        sortSteps: [arrayElements]
+        sortSteps: [arrayElements],
+        length
       },
       sortInterval: 10,
-      sortAlgorithm: "selectionSort"
+      sortAlgorithm: "bubbleSort"
     };
   }
 
@@ -57,6 +60,19 @@ class App extends Component {
     }
   };
 
+  generateNewArray = () => {
+    const { length } = this.state.array;
+    const arrayElements = generateRandomElements(length);
+    const array = {
+      elements: arrayElements,
+      status: "unsorted",
+      currentStepId: 0,
+      sortSteps: [arrayElements],
+      length
+    };
+    this.setState({ array });
+  };
+
   render() {
     const { sortInterval, sortAlgorithm, array } = this.state;
     return (
@@ -68,6 +84,7 @@ class App extends Component {
           onClick={this.handleSortStart}
           elements={array.sortSteps[array.currentStepId]}
         />
+        <ActionButton label="Generate New Array" handleClick={this.generateNewArray} />
       </div>
     );
   }
