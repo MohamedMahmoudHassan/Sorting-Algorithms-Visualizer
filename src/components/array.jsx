@@ -90,7 +90,7 @@ class Array extends Component {
     return (
       <div className="row" style={this.style} onClick={this.handleClick}>
         {this.state.elements.map(element => (
-          <Bar criticalValue={500} element={element} />
+          <Bar maxValue={500} element={element} barsNumber={this.state.elements.length} />
         ))}
       </div>
     );
