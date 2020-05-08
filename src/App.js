@@ -14,7 +14,7 @@ class App extends Component {
 
   constructor() {
     super();
-    const length = 100;
+    const length = 50;
     const arrayElements = generateRandomElements(length);
     this.state = {
       array: {
@@ -24,7 +24,7 @@ class App extends Component {
         sortSteps: [arrayElements],
         length
       },
-      sortInterval: 10,
+      sortInterval: 50,
       sortAlgorithm: "mergeSort"
     };
   }
@@ -73,6 +73,12 @@ class App extends Component {
     this.setState({ array });
   };
 
+  changeArrayProp = ({ currentTarget: input }) => {
+    const array = { ...this.state.array };
+    array[input.name] = input.value;
+    this.setState({ array });
+  };
+
   render() {
     const { sortInterval, sortAlgorithm, array } = this.state;
     return (
@@ -84,7 +90,11 @@ class App extends Component {
           onClick={this.handleSortStart}
           elements={array.sortSteps[array.currentStepId]}
         />
-        <ControlBar generateNewArray={this.generateNewArray} />
+        <ControlBar
+          generateNewArray={this.generateNewArray}
+          arrayLength={array.length}
+          changeArrayLength={this.changeArrayProp}
+        />
       </div>
     );
   }
