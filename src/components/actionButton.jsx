@@ -1,8 +1,8 @@
 import React from "react";
 
-const ActionButton = ({ handleClick, label }) => {
+const ActionButton = ({ handleClick, label, ...rest }) => {
   return (
-    <button className="btn btn-primary" onClick={handleClick} style={{ marginTop: 5 }}>
+    <button className="btn btn-primary" onClick={handleClick} {...rest}>
       {label}
     </button>
   );

@@ -3,7 +3,7 @@ import "./App.css";
 import Array from "./components/array";
 import generateRandomElements from "./Util/generateRandomElements";
 import sortWithSteps from "./Util/sortWithSteps";
-import ActionButton from "./components/actionButton";
+import ControlBar from "./components/controlBar";
 
 class App extends Component {
   state = {
@@ -84,7 +84,7 @@ class App extends Component {
           onClick={this.handleSortStart}
           elements={array.sortSteps[array.currentStepId]}
         />
-        <ActionButton label="Generate New Array" handleClick={this.generateNewArray} />
+        <ControlBar generateNewArray={this.generateNewArray} />
       </div>
     );
   }
