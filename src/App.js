@@ -6,17 +6,17 @@ import generateRandomElements from "./Util/generateRandomElements";
 class App extends Component {
   state = { sortInterval: 0, sortAlgorithm: "", arrayElements: [] };
 
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      sortInterval:10,
-      sortAlgorithm: "selectionSort",
+      sortInterval: 10,
+      sortAlgorithm: "bubbleSort",
       arrayElements: generateRandomElements(50)
-    }
+    };
   }
 
   render() {
-    const {sortInterval, sortAlgorithm, arrayElements } = this.state;
+    const { sortInterval, sortAlgorithm, arrayElements } = this.state;
     return (
       <div className="container">
         <h1>Sorting Algorithms Visualizer</h1>
