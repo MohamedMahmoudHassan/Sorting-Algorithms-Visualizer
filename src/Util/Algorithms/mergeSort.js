@@ -47,5 +47,5 @@ class MergeSortArray {
 export default function mergeSort(arr) {
   const mergeArr = new MergeSortArray(arr);
   mergeArr.mergeSort(0, arr.length - 1);
-  return mergeArr.sortSteps;
+  return [...mergeArr.sortSteps, mergeArr.arr];
 }

@@ -14,7 +14,7 @@ class App extends Component {
 
   constructor() {
     super();
-    const length = 8;
+    const length = 100;
     const arrayElements = generateRandomElements(length);
     this.state = {
       array: {
@@ -24,7 +24,7 @@ class App extends Component {
         sortSteps: [arrayElements],
         length
       },
-      sortInterval: 1000,
+      sortInterval: 10,
       sortAlgorithm: "mergeSort"
     };
   }
