@@ -4,11 +4,11 @@ import mergeSort from "./Algorithms/mergeSort";
 
 export default function sortWithSteps(arr, algorithm) {
   switch (algorithm) {
-    case "bubbleSort":
+    case "Bubble Sort":
       return bubbleSort(arr);
-    case "selectionSort":
+    case "Selection Sort":
       return selectionSort(arr);
-    case "mergeSort":
+    case "Merge Sort":
       return mergeSort(arr);
     default:
       return arr;

@@ -26,7 +26,7 @@ class App extends Component {
         length
       },
       sortInterval: 50,
-      sortAlgorithm: "mergeSort"
+      sortAlgorithm: "Bubble Sort"
     };
   }
 
@@ -94,7 +94,6 @@ class App extends Component {
         <ArrayVisualizer
           sortInterval={sortInterval}
           sortAlgorithm={sortAlgorithm}
-          onClick={this.handleSortStart}
           elements={array.sortSteps[array.currentStepId]}
         />
         <ArrayControlBar
@@ -106,6 +105,7 @@ class App extends Component {
           handleSortStart={this.handleSortStart}
           sortInterval={sortInterval}
           changeSortInterval={this.changeSortProp}
+          changeSortAlgorithm={this.changeSortProp}
         />
       </div>
     );
