@@ -1,7 +1,8 @@
 export const sortAlgorithmsList = [
   { _id: 0, name: "Bubble Sort" },
   { _id: 1, name: "Selection Sort" },
-  { _id: 2, name: "Merge Sort" }
+  { _id: 2, name: "Merge Sort" },
+  { _id: 3, name: "Insertion Sort" }
 ];
 
 export const initialOrdersList = [
