@@ -1,4 +1,4 @@
-export default function randomGenerator(length, min, max) {
+export default function random(length, min, max) {
   let values = [];
   while (length--) {
     values.push({

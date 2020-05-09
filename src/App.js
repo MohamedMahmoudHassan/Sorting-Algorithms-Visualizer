@@ -8,7 +8,14 @@ import sortWithSteps from "./Util/sortWithSteps";
 
 class App extends Component {
   state = {
-    array: { elements: [], sortSteps: [], currentStepId: 0, status: "", length: 0, type: "" },
+    array: {
+      elements: [],
+      sortSteps: [],
+      currentStepId: 0,
+      status: "",
+      length: 0,
+      initialOrder: ""
+    },
     sortInterval: 0,
     sortAlgorithm: ""
   };
@@ -16,8 +23,8 @@ class App extends Component {
   constructor() {
     super();
     const length = 50;
-    const type = "Random";
-    const arrayElements = generateElements(length, type);
+    const initialOrder = "Reversed";
+    const arrayElements = generateElements(length, initialOrder);
     this.state = {
       array: {
         elements: arrayElements,
@@ -25,7 +32,7 @@ class App extends Component {
         currentStepId: 0,
         sortSteps: [arrayElements],
         length,
-        type
+        initialOrder
       },
       sortInterval: 50,
       sortAlgorithm: "Bubble Sort"
@@ -72,15 +79,15 @@ class App extends Component {
 
   generateNewArray = () => {
     let array = { ...this.state.array };
-    const { length, type } = array;
-    const arrayElements = generateElements(length, type);
+    const { length, initialOrder } = array;
+    const arrayElements = generateElements(length, initialOrder);
     array = {
       elements: arrayElements,
       status: "unsorted",
       currentStepId: 0,
       sortSteps: [arrayElements],
       length,
-      type
+      initialOrder
     };
     this.setState({ array });
   };
