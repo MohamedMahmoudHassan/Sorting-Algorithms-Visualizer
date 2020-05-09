@@ -9,10 +9,11 @@ const ArrayControlBar = ({
   generateNewArray,
   changeArrayLength,
   recoverArray,
-  changeArrayInitialOrder
+  changeArrayInitialOrder,
+  currentOption
 }) => {
   return (
-    <div>
+    <div className="row">
       <Input
         name="length"
         label="Array Length"
@@ -26,6 +27,7 @@ const ArrayControlBar = ({
         options={initialOrdersList}
         style={{ width: 300 }}
         onChange={changeArrayInitialOrder}
+        currentOption={currentOption}
       />
       <ActionButton
         label="Generate New Array"

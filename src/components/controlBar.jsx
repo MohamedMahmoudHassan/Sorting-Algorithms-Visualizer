@@ -8,19 +8,21 @@ const ControlBar = ({
   changeArrayLength,
   recoverArray,
   changeArrayInitialOrder,
+  currentOrder,
   handleSortStart,
   sortInterval,
   changeSortInterval,
   changeSortAlgorithm
 }) => {
   return (
-    <div class="py-5 bg-secondary">
+    <div className="py-5 bg-secondary">
       <ArrayControlBar
         generateNewArray={generateNewArray}
         length={length}
         changeArrayLength={changeArrayLength}
         recoverArray={recoverArray}
         changeArrayInitialOrder={changeArrayInitialOrder}
+        currentOption={currentOrder}
       />
       <SortControlBar
         handleSortStart={handleSortStart}

@@ -106,6 +106,7 @@ class App extends Component {
 
   render() {
     const { sortInterval, sortAlgorithm, array } = this.state;
+    const { initialOrder } = array;
     return (
       <div>
         <NavBar />
@@ -117,6 +118,7 @@ class App extends Component {
         <ControlBar
           generateNewArray={this.generateNewArray}
           arrayLength={array.length}
+          currentOrder={initialOrder}
           changeArrayLength={this.changeArrayProp}
           recoverArray={this.recoverArray}
           changeArrayInitialOrder={this.changeArrayProp}
