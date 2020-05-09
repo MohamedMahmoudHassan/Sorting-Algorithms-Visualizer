@@ -5,8 +5,6 @@ const ArrayVisualizer = ({ onClick, elements }) => {
   const style = {
     width: 1000,
     height: 500,
-    borderWidth: 1,
-    borderStyle: "solid"
   };
 
   return (

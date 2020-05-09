@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import ArrayVisualizer from "./components/arrayVisualizer";
+import NavBar from "./components/navBar";
 import ControlBar from "./components/controlBar";
 import generateElements from "./Util/generateElements";
 import sortWithSteps from "./Util/sortWithSteps";
@@ -106,8 +107,8 @@ class App extends Component {
   render() {
     const { sortInterval, sortAlgorithm, array } = this.state;
     return (
-      <div className="container">
-        <h1>Sorting Algorithms Visualizer</h1>
+      <div>
+        <NavBar />
         <ArrayVisualizer
           sortInterval={sortInterval}
           sortAlgorithm={sortAlgorithm}
