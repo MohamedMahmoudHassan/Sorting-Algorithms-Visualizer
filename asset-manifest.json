@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/Sorting-Algorithms-Visualizer/static/css/main.8ab6f918.chunk.css",
-    "main.js": "/Sorting-Algorithms-Visualizer/static/js/main.f421d5e8.chunk.js",
-    "main.js.map": "/Sorting-Algorithms-Visualizer/static/js/main.f421d5e8.chunk.js.map",
+    "main.js": "/Sorting-Algorithms-Visualizer/static/js/main.173fabb4.chunk.js",
+    "main.js.map": "/Sorting-Algorithms-Visualizer/static/js/main.173fabb4.chunk.js.map",
     "runtime-main.js": "/Sorting-Algorithms-Visualizer/static/js/runtime-main.63088831.js",
     "runtime-main.js.map": "/Sorting-Algorithms-Visualizer/static/js/runtime-main.63088831.js.map",
     "static/css/2.74189dbb.chunk.css": "/Sorting-Algorithms-Visualizer/static/css/2.74189dbb.chunk.css",
-    "static/js/2.c41a0181.chunk.js": "/Sorting-Algorithms-Visualizer/static/js/2.c41a0181.chunk.js",
-    "static/js/2.c41a0181.chunk.js.map": "/Sorting-Algorithms-Visualizer/static/js/2.c41a0181.chunk.js.map",
+    "static/js/2.54c7fa24.chunk.js": "/Sorting-Algorithms-Visualizer/static/js/2.54c7fa24.chunk.js",
+    "static/js/2.54c7fa24.chunk.js.map": "/Sorting-Algorithms-Visualizer/static/js/2.54c7fa24.chunk.js.map",
     "index.html": "/Sorting-Algorithms-Visualizer/index.html",
-    "precache-manifest.a127f73835985e3dc9e045302d8dc88a.js": "/Sorting-Algorithms-Visualizer/precache-manifest.a127f73835985e3dc9e045302d8dc88a.js",
+    "precache-manifest.9d69662eed30beaad075cad3c3c0b959.js": "/Sorting-Algorithms-Visualizer/precache-manifest.9d69662eed30beaad075cad3c3c0b959.js",
     "service-worker.js": "/Sorting-Algorithms-Visualizer/service-worker.js",
     "static/css/2.74189dbb.chunk.css.map": "/Sorting-Algorithms-Visualizer/static/css/2.74189dbb.chunk.css.map",
     "static/css/main.8ab6f918.chunk.css.map": "/Sorting-Algorithms-Visualizer/static/css/main.8ab6f918.chunk.css.map",
-    "static/js/2.c41a0181.chunk.js.LICENSE.txt": "/Sorting-Algorithms-Visualizer/static/js/2.c41a0181.chunk.js.LICENSE.txt"
+    "static/js/2.54c7fa24.chunk.js.LICENSE.txt": "/Sorting-Algorithms-Visualizer/static/js/2.54c7fa24.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.63088831.js",
     "static/css/2.74189dbb.chunk.css",
-    "static/js/2.c41a0181.chunk.js",
+    "static/js/2.54c7fa24.chunk.js",
     "static/css/main.8ab6f918.chunk.css",
-    "static/js/main.f421d5e8.chunk.js"
+    "static/js/main.173fabb4.chunk.js"
   ]
 }
