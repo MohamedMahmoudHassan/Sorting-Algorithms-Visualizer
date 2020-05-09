@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import ArrayVisualizer from "./components/arrayVisualizer";
-import ArrayControlBar from "./components/arrayControlBar";
-import SortControlBar from "./components/sortControlBar";
+import ControlBar from "./components/controlBar";
 import generateElements from "./Util/generateElements";
 import sortWithSteps from "./Util/sortWithSteps";
 
@@ -114,14 +113,12 @@ class App extends Component {
           sortAlgorithm={sortAlgorithm}
           elements={array.sortSteps[array.currentStepId]}
         />
-        <ArrayControlBar
+        <ControlBar
           generateNewArray={this.generateNewArray}
           arrayLength={array.length}
           changeArrayLength={this.changeArrayProp}
           recoverArray={this.recoverArray}
           changeArrayInitialOrder={this.changeArrayProp}
-        />
-        <SortControlBar
           handleSortStart={this.handleSortStart}
           sortInterval={sortInterval}
           changeSortInterval={this.changeSortProp}
