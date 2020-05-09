@@ -1,8 +1,8 @@
-export default function generateRandomElements(length) {
+export default function randomGenerator(length, min, max) {
   let values = [];
   while (length--) {
     values.push({
-      value: Math.floor(Math.random(1) * 200 + 40),
+      value: Math.floor(Math.random() * (max - min)) + min,
       isInComparison: false,
       isInSwap: false
     });

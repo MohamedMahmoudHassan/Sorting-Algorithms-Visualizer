@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import ArrayVisualizer from "./components/arrayVisualizer";
-import generateRandomElements from "./Util/generateRandomElements";
-import sortWithSteps from "./Util/sortWithSteps";
 import ArrayControlBar from "./components/arrayControlBar";
 import SortControlBar from "./components/sortControlBar";
+import generateElements from "./Util/generateElements";
+import sortWithSteps from "./Util/sortWithSteps";
 
 class App extends Component {
   state = {
-    array: { elements: [], sortSteps: [], currentStepId: 0, status: "", length: 0 },
+    array: { elements: [], sortSteps: [], currentStepId: 0, status: "", length: 0, type: "" },
     sortInterval: 0,
     sortAlgorithm: ""
   };
@@ -16,14 +16,16 @@ class App extends Component {
   constructor() {
     super();
     const length = 50;
-    const arrayElements = generateRandomElements(length);
+    const type = "Random";
+    const arrayElements = generateElements(length, type);
     this.state = {
       array: {
         elements: arrayElements,
         status: "unsorted",
         currentStepId: 0,
         sortSteps: [arrayElements],
-        length
+        length,
+        type
       },
       sortInterval: 50,
       sortAlgorithm: "Bubble Sort"
@@ -69,14 +71,16 @@ class App extends Component {
   };
 
   generateNewArray = () => {
-    const { length } = this.state.array;
-    const arrayElements = generateRandomElements(length);
-    const array = {
+    let array = { ...this.state.array };
+    const { length, type } = array;
+    const arrayElements = generateElements(length, type);
+    array = {
       elements: arrayElements,
       status: "unsorted",
       currentStepId: 0,
       sortSteps: [arrayElements],
-      length
+      length,
+      type
     };
     this.setState({ array });
   };
