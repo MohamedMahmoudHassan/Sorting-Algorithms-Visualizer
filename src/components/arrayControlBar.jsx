@@ -2,7 +2,7 @@ import React from "react";
 import ActionButton from "./actionButton";
 import Input from "./input";
 import Select from "./select";
-import { initialOrdersList } from "./../Util/initialOrdersList";
+import { initialOrdersList } from "./../Util/algorithmsLists";
 
 const ArrayControlBar = ({
   arrayLength,

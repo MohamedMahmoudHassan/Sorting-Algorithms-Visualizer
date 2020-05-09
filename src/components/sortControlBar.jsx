@@ -2,7 +2,7 @@ import React from "react";
 import ActionButton from "./actionButton";
 import Input from "./input";
 import Select from "./select";
-import { sortAlgorithmsList } from "../Util/sortAlgorithmsList";
+import { sortAlgorithmsList } from "../Util/algorithmsLists";
 
 const SortControlBar = ({
   sortInterval,
