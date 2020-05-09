@@ -23,7 +23,7 @@ class App extends Component {
   constructor() {
     super();
     const length = 50;
-    const initialOrder = "Reversed";
+    const initialOrder = "Random";
     const arrayElements = generateElements(length, initialOrder);
     this.state = {
       array: {
@@ -119,6 +119,7 @@ class App extends Component {
           arrayLength={array.length}
           changeArrayLength={this.changeArrayProp}
           recoverArray={this.recoverArray}
+          changeArrayInitialOrder={this.changeArrayProp}
         />
         <SortControlBar
           handleSortStart={this.handleSortStart}

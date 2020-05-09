@@ -1,8 +1,16 @@
 import React from "react";
 import ActionButton from "./actionButton";
 import Input from "./input";
+import Select from "./select";
+import { initialOrdersList } from "./../Util/initialOrdersList";
 
-const ArrayControlBar = ({ arrayLength, generateNewArray, changeArrayLength, recoverArray }) => {
+const ArrayControlBar = ({
+  arrayLength,
+  generateNewArray,
+  changeArrayLength,
+  recoverArray,
+  changeArrayInitialOrder
+}) => {
   return (
     <div>
       <Input
@@ -11,6 +19,13 @@ const ArrayControlBar = ({ arrayLength, generateNewArray, changeArrayLength, rec
         value={arrayLength}
         style={{ width: 100 }}
         onChange={changeArrayLength}
+      />
+      <Select
+        name="initialOrder"
+        label="Array Initial Order"
+        options={initialOrdersList}
+        style={{ width: 300 }}
+        onChange={changeArrayInitialOrder}
       />
       <ActionButton
         label="Generate New Array"
