@@ -2,7 +2,7 @@ import React from "react";
 import ActionButton from "./actionButton";
 import Input from "./input";
 
-const ArrayControlBar = ({ arrayLength, generateNewArray, changeArrayLength }) => {
+const ArrayControlBar = ({ arrayLength, generateNewArray, changeArrayLength, recoverArray }) => {
   return (
     <div>
       <Input
@@ -16,6 +16,11 @@ const ArrayControlBar = ({ arrayLength, generateNewArray, changeArrayLength }) =
         label="Generate New Array"
         handleClick={generateNewArray}
         style={{ marginTop: 5 }}
+      />
+      <ActionButton
+        label="Recover Array"
+        handleClick={recoverArray}
+        style={{ marginTop: 5, marginLeft: 5 }}
       />
     </div>
   );

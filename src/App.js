@@ -61,6 +61,13 @@ class App extends Component {
     }
   };
 
+  recoverArray = () => {
+    const array = { ...this.state.array };
+    array.status = "unsorted";
+    array.currentStepId = 0;
+    this.setState({ array });
+  };
+
   generateNewArray = () => {
     const { length } = this.state.array;
     const arrayElements = generateRandomElements(length);
@@ -100,6 +107,7 @@ class App extends Component {
           generateNewArray={this.generateNewArray}
           arrayLength={array.length}
           changeArrayLength={this.changeArrayProp}
+          recoverArray={this.recoverArray}
         />
         <SortControlBar
           handleSortStart={this.handleSortStart}
