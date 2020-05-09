@@ -1,4 +1,4 @@
-import getSortStep from "../getSortStep";
+import getSortStep from "../../getSortStep";
 
 class MergeSortArray {
   constructor(arr) {

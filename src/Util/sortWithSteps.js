@@ -1,6 +1,6 @@
-import bubbleSort from "./Algorithms/bubbleSort";
-import selectionSort from "./Algorithms/selectionSort";
-import mergeSort from "./Algorithms/mergeSort";
+import bubbleSort from "./Algorithms/Sorting/bubbleSort";
+import selectionSort from "./Algorithms/Sorting/selectionSort";
+import mergeSort from "./Algorithms/Sorting/mergeSort";
 
 export default function sortWithSteps(arr, algorithm) {
   switch (algorithm) {
