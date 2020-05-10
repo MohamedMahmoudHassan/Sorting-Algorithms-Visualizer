@@ -46,7 +46,7 @@ class App extends Component {
       }, this.state.sortInterval);
   }
 
-  updateArrayState = arrayState => {
+  applySortStep = arrayState => {
     const array = { ...this.state.array };
     Object.keys(arrayState).forEach(key => (array[key] = arrayState[key]));
     this.setState({ array });
@@ -58,14 +58,14 @@ class App extends Component {
       status = "sorted";
     } else currentStepId++;
 
-    this.updateArrayState({ status, currentStepId });
+    this.applySortStep({ status, currentStepId });
   };
 
   handleSortStart = () => {
     const { elements, status } = this.state.array;
     if (status === "unsorted") {
       const sortSteps = [elements, ...sortWithSteps([...elements], this.state.sortAlgorithm)];
-      this.updateArrayState({ status: "sorting", sortSteps });
+      this.applySortStep({ status: "sorting", sortSteps });
     }
   };
 
