@@ -17,7 +17,7 @@ const Select = ({ name, label, options, currentOption, onChange }) => {
             checked={item.name === currentOption}
             onChange={onChange}
           />
-          <label class="custom-control-label" htmlFor={item.name}>
+          <label className="custom-control-label" htmlFor={item.name}>
             {item.name}
           </label>
         </div>
