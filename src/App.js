@@ -115,6 +115,8 @@ class App extends Component {
           sortAlgorithm={sortAlgorithm}
           elements={array.sortSteps[array.currentStepId]}
           handleSortStart={this.handleSortStart}
+          recoverArray={this.recoverArray}
+          isSorting={isSorting}
         />
         <ControlBar
           generateNewArray={this.generateNewArray}

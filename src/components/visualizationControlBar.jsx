@@ -1,7 +1,7 @@
 import React from "react";
 import VisualizationButton from "./visualizationButton";
 
-const VisualizationControlBar = ({ handleSortStart }) => {
+const VisualizationControlBar = ({ handleSortStart, recoverArray, isSorting }) => {
   return (
     <div className="py-1 bg-default">
       <div className="container">
@@ -13,7 +13,12 @@ const VisualizationControlBar = ({ handleSortStart }) => {
               size={1}
               title="Previous Step"
             />
-            <VisualizationButton handleClick={handleSortStart} role="play" size={2} title="Run" />
+            <VisualizationButton
+              handleClick={handleSortStart}
+              role={isSorting ? "pause" : "play"}
+              size={2}
+              title="Run"
+            />
             <VisualizationButton
               handleClick={handleSortStart}
               role="step-forward"
@@ -21,10 +26,10 @@ const VisualizationControlBar = ({ handleSortStart }) => {
               title="Next Step"
             />
             <VisualizationButton
-              handleClick={handleSortStart}
+              handleClick={recoverArray}
               role="stop"
               size={1}
-              title="Rest Array"
+              title="Recover Array"
             />
           </div>
         </div>
