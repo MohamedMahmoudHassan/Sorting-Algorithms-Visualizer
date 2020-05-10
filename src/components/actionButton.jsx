@@ -2,9 +2,11 @@ import React from "react";
 
 const ActionButton = ({ handleClick, label, ...rest }) => {
   return (
-    <button className="btn btn-primary" onClick={handleClick} {...rest}>
-      {label}
-    </button>
+    <div style={{ marginTop: 30 }}>
+      <button className="btn btn-primary" onClick={handleClick} {...rest}>
+        {label}
+      </button>
+    </div>
   );
 };
 
