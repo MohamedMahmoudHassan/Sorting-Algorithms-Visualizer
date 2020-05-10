@@ -42,7 +42,7 @@ class App extends Component {
     clearInterval(this.sortInterval);
     if (this.state.array.status === "sorting")
       this.sortInterval = setInterval(() => {
-        this.applySortStep();
+        this.applySortStep("forward");
       }, this.state.sortInterval);
   }
 
@@ -52,12 +52,15 @@ class App extends Component {
     this.setState({ array });
   };
 
-  applySortStep = () => {
+  applySortStep = type => {
     const array = { ...this.state.array };
     let { sortSteps, currentStepId, status } = array;
-    if (currentStepId + 1 === sortSteps.length) {
-      status = "sorted";
-    } else currentStepId++;
+    if (status === "unsorted") return;
+    if (type === "forward") {
+      if (currentStepId + 1 === sortSteps.length) {
+        status = "sorted";
+      } else currentStepId++;
+    } else if (currentStepId - 1 >= 0) currentStepId--;
 
     this.updateArrayState({ status, currentStepId });
   };
@@ -67,14 +70,16 @@ class App extends Component {
     const { elements, status } = array;
     if (status === "unsorted") {
       const sortSteps = [elements, ...sortWithSteps([...elements], this.state.sortAlgorithm)];
-      this.updateArrayState({ status: "sorting", sortSteps });
+      this.updateArrayState({ status: "pausedSorting", sortSteps });
     }
   };
 
   runSort = () => {
     const array = { ...this.state.array };
-    array.status = "sorting";
-    this.setState({ array });
+    if (array.status === "pausedSorting") {
+      array.status = "sorting";
+      this.setState({ array });
+    }
   };
 
   pauseSort = () => {
@@ -87,6 +92,7 @@ class App extends Component {
     const array = { ...this.state.array };
     array.status = "unsorted";
     array.currentStepId = 0;
+    array.sortSteps = [array.elements];
     this.setState({ array });
   };
 
@@ -132,6 +138,7 @@ class App extends Component {
           startSort={this.startSort}
           runSort={this.runSort}
           pauseSort={this.pauseSort}
+          applySortStep={this.applySortStep}
           recoverArray={this.recoverArray}
           isSorting={isSorting}
         />
