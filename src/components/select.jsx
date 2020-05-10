@@ -16,7 +16,7 @@ const Select = ({ name, label, options, currentOption, onChange, isSorting }) =>
             type="radio"
             checked={item.name === currentOption}
             onChange={onChange}
-            disabled={isSorting}
+            disabled={isSorting || item.disabled}
           />
           <label className="custom-control-label" htmlFor={item.name}>
             {item.name}
