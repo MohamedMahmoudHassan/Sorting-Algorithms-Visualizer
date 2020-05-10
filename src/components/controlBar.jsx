@@ -9,7 +9,7 @@ const ControlBar = ({
   recoverArray,
   changeArrayInitialOrder,
   currentOrder,
-  handleSortStart,
+  startSort,
   changeSortAlgorithm,
   currentAlgorithm,
   isSorting
@@ -27,7 +27,7 @@ const ControlBar = ({
           isSorting={isSorting}
         />
         <SortControlBar
-          handleSortStart={handleSortStart}
+          startSort={startSort}
           changeSortAlgorithm={changeSortAlgorithm}
           currentOption={currentAlgorithm}
           isSorting={isSorting}

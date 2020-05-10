@@ -3,7 +3,7 @@ import ActionButton from "./actionButton";
 import Select from "./select";
 import { sortAlgorithmsList } from "../Util/algorithmsLists";
 
-const SortControlBar = ({ handleSortStart, changeSortAlgorithm, currentOption, isSorting }) => {
+const SortControlBar = ({ startSort, changeSortAlgorithm, currentOption, isSorting }) => {
   return (
     <div className="row" style={{ marginTop: 20 }}>
       <Select
@@ -14,7 +14,7 @@ const SortControlBar = ({ handleSortStart, changeSortAlgorithm, currentOption, i
         currentOption={currentOption}
         isSorting={isSorting}
       />
-      <ActionButton label="Sort" handleClick={handleSortStart} isSorting={isSorting} />
+      <ActionButton label="Sort" handleClick={startSort} isSorting={isSorting} />
     </div>
   );
 };
