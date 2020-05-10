@@ -52,10 +52,9 @@ class App extends Component {
     this.setState({ array });
   };
 
-  pause
-
   applySortStep = () => {
-    let { sortSteps, currentStepId, status } = this.state.array;
+    const array = { ...this.state.array };
+    let { sortSteps, currentStepId, status } = array;
     if (currentStepId + 1 === sortSteps.length) {
       status = "sorted";
     } else currentStepId++;
@@ -64,12 +63,15 @@ class App extends Component {
   };
 
   startSort = () => {
-    const { elements, status } = this.state.array;
+    const array = { ...this.state.array };
+    const { elements, status } = array;
     if (status === "unsorted") {
       const sortSteps = [elements, ...sortWithSteps([...elements], this.state.sortAlgorithm)];
       this.updateArrayState({ status: "sorting", sortSteps });
     }
   };
+
+  pauseSort = () => {};
 
   recoverArray = () => {
     const array = { ...this.state.array };
