@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import ArrayVisualizer from "./components/arrayVisualizer";
 import NavBar from "./components/navBar";
 import ControlBar from "./components/controlBar";
