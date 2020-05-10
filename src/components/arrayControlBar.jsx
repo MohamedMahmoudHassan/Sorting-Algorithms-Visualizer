@@ -9,7 +9,8 @@ const ArrayControlBar = ({
   generateNewArray,
   changeArrayLength,
   changeArrayInitialOrder,
-  currentOption
+  currentOption,
+  isSorting
 }) => {
   return (
     <div className="row">
@@ -20,8 +21,13 @@ const ArrayControlBar = ({
         options={initialOrdersList}
         onChange={changeArrayInitialOrder}
         currentOption={currentOption}
+        isSorting={isSorting}
       />
-      <ActionButton label="Generate New Array" handleClick={generateNewArray} />
+      <ActionButton
+        label="Generate New Array"
+        handleClick={generateNewArray}
+        isSorting={isSorting}
+      />
     </div>
   );
 };

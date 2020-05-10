@@ -3,7 +3,6 @@ import ArrayBar from "./arrayBar";
 
 const ArrayVisualizer = ({ onClick, elements }) => {
   const style = {
-    width: 1000,
     height: 500,
     margin: "auto"
   };

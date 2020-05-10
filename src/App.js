@@ -34,7 +34,7 @@ class App extends Component {
         length,
         initialOrder
       },
-      sortInterval: 50,
+      sortInterval: 100,
       sortAlgorithm: "Bubble Sort"
     };
   }
@@ -107,6 +107,7 @@ class App extends Component {
   render() {
     const { sortInterval, sortAlgorithm, array } = this.state;
     const { initialOrder } = array;
+    const isSorting = this.state.array.status === "sorting";
     return (
       <div>
         <NavBar />
@@ -125,6 +126,7 @@ class App extends Component {
           handleSortStart={this.handleSortStart}
           changeSortAlgorithm={this.changeSortProp}
           currentAlgorithm={sortAlgorithm}
+          isSorting={isSorting}
         />
       </div>
     );

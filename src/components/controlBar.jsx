@@ -11,7 +11,8 @@ const ControlBar = ({
   currentOrder,
   handleSortStart,
   changeSortAlgorithm,
-  currentAlgorithm
+  currentAlgorithm,
+  isSorting
 }) => {
   return (
     <div className="py-5 bg-secondary">
@@ -23,11 +24,13 @@ const ControlBar = ({
           recoverArray={recoverArray}
           changeArrayInitialOrder={changeArrayInitialOrder}
           currentOption={currentOrder}
+          isSorting={isSorting}
         />
         <SortControlBar
           handleSortStart={handleSortStart}
           changeSortAlgorithm={changeSortAlgorithm}
           currentOption={currentAlgorithm}
+          isSorting={isSorting}
         />
       </div>
     </div>

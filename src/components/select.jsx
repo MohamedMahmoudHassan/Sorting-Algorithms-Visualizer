@@ -1,6 +1,6 @@
 import React from "react";
 
-const Select = ({ name, label, options, currentOption, onChange }) => {
+const Select = ({ name, label, options, currentOption, onChange, isSorting }) => {
   return (
     <div className="mt-4 mt-md-0 col-md-auto">
       <div className="mb-3">
@@ -16,6 +16,7 @@ const Select = ({ name, label, options, currentOption, onChange }) => {
             type="radio"
             checked={item.name === currentOption}
             onChange={onChange}
+            disabled={isSorting}
           />
           <label className="custom-control-label" htmlFor={item.name}>
             {item.name}
