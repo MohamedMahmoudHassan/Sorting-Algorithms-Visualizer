@@ -1,7 +1,9 @@
 import React from "react";
 
-const VisualizationButton = ({ handleSortStart }) => {
-  return <i class="fa fa-play-circle  fa-5x" aria-hidden="true" onClick={handleSortStart} />;
+const VisualizationButton = ({ role, size, handleClick }) => {
+  return (
+    <i className={`fa fa-${role}-circle  fa-${size}x`} aria-hidden="true" onClick={handleClick} />
+  );
 };
 
 export default VisualizationButton;

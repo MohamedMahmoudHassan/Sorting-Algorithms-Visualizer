@@ -3,9 +3,9 @@ import VisualizationButton from "./visualizationButton";
 
 const VisualizationControlBar = ({ handleSortStart }) => {
   return (
-    <div className="py-5 bg-primary">
+    <div className="py-5 bg-secondary">
       <div className="container">
-        <VisualizationButton handleSortStart={handleSortStart} />
+        <VisualizationButton handleClick={handleSortStart} role={"play"} size={5} />
       </div>
     </div>
   );
