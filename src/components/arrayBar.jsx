@@ -6,11 +6,6 @@ const ArrayBar = ({ element, maxValue, barsNumber }) => {
     isInComparison: "#32325d",
     isInSwap: "#2dce89"
   };
-  // const colorsSchema = {
-  //   normal: "#F8B530",
-  //   isInComparison: "#68CBD0",
-  //   isInSwap: "#08872C"
-  // };
 
   const style = {
     width: 950 / Math.max(barsNumber, 8) - 2,
@@ -18,6 +13,8 @@ const ArrayBar = ({ element, maxValue, barsNumber }) => {
     marginTop: maxValue - element.value - 3,
     marginLeft: 2,
     textAlign: "center",
+    color: "white",
+    fontSize: 400 / Math.max(barsNumber, 8),
     backgroundColor:
       element.isInComparison === true
         ? colorsSchema.isInComparison
@@ -26,7 +23,7 @@ const ArrayBar = ({ element, maxValue, barsNumber }) => {
         : colorsSchema.normal
   };
 
-  return <div style={style} />;
+  return <div style={style}>{element.value - 59}</div>;
 };
 
 export default ArrayBar;
