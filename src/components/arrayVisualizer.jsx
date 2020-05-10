@@ -2,7 +2,7 @@ import React from "react";
 import ArrayBar from "./arrayBar";
 import VisualizationControlBar from "./visualizationControlBar";
 
-const ArrayVisualizer = ({ elements, startSort, recoverArray, isSorting }) => {
+const ArrayVisualizer = ({ elements, startSort, pauseSort, recoverArray, isSorting }) => {
   return (
     <div>
       <div className="row" style={{ height: 500, margin: "auto" }}>
@@ -14,6 +14,7 @@ const ArrayVisualizer = ({ elements, startSort, recoverArray, isSorting }) => {
       </div>
       <VisualizationControlBar
         startSort={startSort}
+        pauseSort={pauseSort}
         recoverArray={recoverArray}
         isSorting={isSorting}
       />

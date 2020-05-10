@@ -1,7 +1,7 @@
 import React from "react";
 import VisualizationButton from "./visualizationButton";
 
-const VisualizationControlBar = ({ startSort, recoverArray, isSorting }) => {
+const VisualizationControlBar = ({ startSort, pauseSort, recoverArray, isSorting }) => {
   return (
     <div className="py-1 bg-default">
       <div className="container">
@@ -14,7 +14,7 @@ const VisualizationControlBar = ({ startSort, recoverArray, isSorting }) => {
               title="Previous Step"
             />
             <VisualizationButton
-              handleClick={startSort}
+              handleClick={isSorting ? pauseSort : startSort}
               role={isSorting ? "pause" : "play"}
               size={2}
               title="Run"

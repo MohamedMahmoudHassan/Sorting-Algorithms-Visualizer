@@ -71,7 +71,11 @@ class App extends Component {
     }
   };
 
-  pauseSort = () => {};
+  pauseSort = () => {
+    const array = { ...this.state.array };
+    array.status = "pausedSorting";
+    this.setState({ array });
+  };
 
   recoverArray = () => {
     const array = { ...this.state.array };
@@ -119,6 +123,7 @@ class App extends Component {
           sortAlgorithm={sortAlgorithm}
           elements={array.sortSteps[array.currentStepId]}
           startSort={this.startSort}
+          pauseSort={this.pauseSort}
           recoverArray={this.recoverArray}
           isSorting={isSorting}
         />
