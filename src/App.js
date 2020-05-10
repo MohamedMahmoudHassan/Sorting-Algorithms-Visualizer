@@ -42,30 +42,30 @@ class App extends Component {
     clearInterval(this.sortInterval);
     if (this.state.array.status === "sorting")
       this.sortInterval = setInterval(() => {
-        this.handleStatusUpdate();
+        this.applySortStep();
       }, this.state.sortInterval);
   }
 
-  applySortStep = arrayState => {
+  updateArrayState = arrayState => {
     const array = { ...this.state.array };
     Object.keys(arrayState).forEach(key => (array[key] = arrayState[key]));
     this.setState({ array });
   };
 
-  handleStatusUpdate = () => {
+  applySortStep = () => {
     let { sortSteps, currentStepId, status } = this.state.array;
     if (currentStepId + 1 === sortSteps.length) {
       status = "sorted";
     } else currentStepId++;
 
-    this.applySortStep({ status, currentStepId });
+    this.updateArrayState({ status, currentStepId });
   };
 
   handleSortStart = () => {
     const { elements, status } = this.state.array;
     if (status === "unsorted") {
       const sortSteps = [elements, ...sortWithSteps([...elements], this.state.sortAlgorithm)];
-      this.applySortStep({ status: "sorting", sortSteps });
+      this.updateArrayState({ status: "sorting", sortSteps });
     }
   };
 
@@ -108,7 +108,7 @@ class App extends Component {
     const { initialOrder } = array;
     const isSorting = this.state.array.status === "sorting";
     return (
-      <div>
+      <React.Fragment>
         <NavBar />
         <ArrayVisualizer
           sortInterval={sortInterval}
@@ -130,7 +130,7 @@ class App extends Component {
           currentAlgorithm={sortAlgorithm}
           isSorting={isSorting}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }
