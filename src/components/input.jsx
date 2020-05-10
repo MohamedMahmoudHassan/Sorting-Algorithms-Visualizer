@@ -2,10 +2,19 @@ import React from "react";
 
 const Input = ({ label, name, error, ...rest }) => {
   return (
-    <div className="form-group">
-      <label htmlFor={name}>{label}</label>
-      <input {...rest} name={name} id={name} key={name} className="form-control" />
-      {error && <div className="alert alert-danger">{error}</div>}
+    <div className="col-sm-6 col-lg-2">
+      <div className="mb-2">
+        <small className="text-uppercase font-weight-bold">{label}</small>
+      </div>
+      <div className="form-group">
+        <input
+          className="form-control-alternative form-control"
+          {...rest}
+          name={name}
+          id={name}
+          key={name}
+        />
+      </div>
     </div>
   );
 };

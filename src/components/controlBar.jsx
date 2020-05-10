@@ -4,7 +4,7 @@ import SortControlBar from "./sortControlBar";
 
 const ControlBar = ({
   generateNewArray,
-  length,
+  arrayLength,
   changeArrayLength,
   recoverArray,
   changeArrayInitialOrder,
@@ -16,20 +16,22 @@ const ControlBar = ({
 }) => {
   return (
     <div className="py-5 bg-secondary">
-      <ArrayControlBar
-        generateNewArray={generateNewArray}
-        length={length}
-        changeArrayLength={changeArrayLength}
-        recoverArray={recoverArray}
-        changeArrayInitialOrder={changeArrayInitialOrder}
-        currentOption={currentOrder}
-      />
-      <SortControlBar
-        handleSortStart={handleSortStart}
-        sortInterval={sortInterval}
-        changeSortInterval={changeSortInterval}
-        changeSortAlgorithm={changeSortAlgorithm}
-      />
+      <div className="container">
+        <ArrayControlBar
+          generateNewArray={generateNewArray}
+          arrayLength={arrayLength}
+          changeArrayLength={changeArrayLength}
+          recoverArray={recoverArray}
+          changeArrayInitialOrder={changeArrayInitialOrder}
+          currentOption={currentOrder}
+        />
+        <SortControlBar
+          handleSortStart={handleSortStart}
+          sortInterval={sortInterval}
+          changeSortInterval={changeSortInterval}
+          changeSortAlgorithm={changeSortAlgorithm}
+        />
+      </div>
     </div>
   );
 };

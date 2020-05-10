@@ -8,37 +8,20 @@ const ArrayControlBar = ({
   arrayLength,
   generateNewArray,
   changeArrayLength,
-  recoverArray,
   changeArrayInitialOrder,
   currentOption
 }) => {
   return (
     <div className="row">
-      <Input
-        name="length"
-        label="Array Length"
-        value={arrayLength}
-        style={{ width: 100 }}
-        onChange={changeArrayLength}
-      />
+      <Input name="length" label="Array Length" value={arrayLength} onChange={changeArrayLength} />
       <Select
         name="initialOrder"
         label="Array Initial Order"
         options={initialOrdersList}
-        style={{ width: 300 }}
         onChange={changeArrayInitialOrder}
         currentOption={currentOption}
       />
-      <ActionButton
-        label="Generate New Array"
-        handleClick={generateNewArray}
-        style={{ marginTop: 5 }}
-      />
-      <ActionButton
-        label="Recover Array"
-        handleClick={recoverArray}
-        style={{ marginTop: 5, marginLeft: 5 }}
-      />
+      <ActionButton label="Generate New Array" handleClick={generateNewArray} />
     </div>
   );
 };
