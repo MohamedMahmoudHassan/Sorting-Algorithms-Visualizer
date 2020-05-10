@@ -123,9 +123,8 @@ class App extends Component {
           recoverArray={this.recoverArray}
           changeArrayInitialOrder={this.changeArrayProp}
           handleSortStart={this.handleSortStart}
-          sortInterval={sortInterval}
-          changeSortInterval={this.changeSortProp}
           changeSortAlgorithm={this.changeSortProp}
+          currentAlgorithm={sortAlgorithm}
         />
       </div>
     );

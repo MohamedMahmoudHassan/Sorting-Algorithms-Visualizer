@@ -1,32 +1,19 @@
 import React from "react";
 import ActionButton from "./actionButton";
-import Input from "./input";
 import Select from "./select";
 import { sortAlgorithmsList } from "../Util/algorithmsLists";
 
-const SortControlBar = ({
-  sortInterval,
-  handleSortStart,
-  changeSortInterval,
-  changeSortAlgorithm
-}) => {
+const SortControlBar = ({ handleSortStart, changeSortAlgorithm, currentOption }) => {
   return (
-    <div>
-      <Input
-        name="sortInterval"
-        label="Sort Interval"
-        value={sortInterval}
-        style={{ width: 100 }}
-        onChange={changeSortInterval}
-      />
+    <div className="row" style={{ marginTop: 20 }}>
       <Select
         name="sortAlgorithm"
         label="Sort Algorithm"
         options={sortAlgorithmsList}
-        style={{ width: 300 }}
         onChange={changeSortAlgorithm}
+        currentOption={currentOption}
       />
-      <ActionButton label="Sort" handleClick={handleSortStart} style={{ marginTop: 5 }} />
+      <ActionButton label="Sort" handleClick={handleSortStart} />
     </div>
   );
 };
