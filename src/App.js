@@ -126,8 +126,6 @@ class App extends Component {
   render() {
     const { sortInterval, sortAlgorithm, array } = this.state;
     const { initialOrder } = array;
-    const isSorting = this.state.array.status === "sorting";
-    const isPausedSorting = this.state.array.status === "pausedSorting";
     return (
       <React.Fragment>
         <NavBar />
@@ -140,7 +138,8 @@ class App extends Component {
           pauseSort={this.pauseSort}
           applySortStep={this.applySortStep}
           recoverArray={this.recoverArray}
-          isSorting={isSorting}
+          isSorting={array.status === "sorting"}
+          isBeforeSort={array.status !== "unsorted"}
         />
         <ControlBar
           generateNewArray={this.generateNewArray}
@@ -152,7 +151,7 @@ class App extends Component {
           startSort={this.startSort}
           changeSortAlgorithm={this.changeSortProp}
           currentAlgorithm={sortAlgorithm}
-          isSorting={isSorting || isPausedSorting}
+          isSorting={array.status === "sorting" || array.status === "pausedSorting"}
         />
       </React.Fragment>
     );

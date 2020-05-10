@@ -8,7 +8,8 @@ const ArrayVisualizer = ({
   pauseSort,
   applySortStep,
   recoverArray,
-  isSorting
+  isSorting,
+  isBeforeSort
 }) => {
   return (
     <div>
@@ -19,13 +20,17 @@ const ArrayVisualizer = ({
           ))}
         </div>
       </div>
-      <VisualizationControlBar
-        runSort={runSort}
-        pauseSort={pauseSort}
-        applySortStep={applySortStep}
-        recoverArray={recoverArray}
-        isSorting={isSorting}
-      />
+      {isBeforeSort ? (
+        <VisualizationControlBar
+          runSort={runSort}
+          pauseSort={pauseSort}
+          applySortStep={applySortStep}
+          recoverArray={recoverArray}
+          isSorting={isSorting}
+        />
+      ) : (
+        <React.Fragment />
+      )}
     </div>
   );
 };
