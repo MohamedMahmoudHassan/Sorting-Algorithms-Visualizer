@@ -4,6 +4,7 @@ import NavBar from "./components/navBar";
 import ControlBar from "./components/controlBar";
 import generateElements from "./Util/generateElements";
 import sortWithSteps from "./Util/sortWithSteps";
+import getFirstStep from "./Util/getFirstStep";
 
 class App extends Component {
   state = {
@@ -23,13 +24,13 @@ class App extends Component {
     super();
     const length = 50;
     const initialOrder = "Random";
-    const arrayElements = generateElements(length, initialOrder);
+    const arrayElements = generateElements(initialOrder);
     this.state = {
       array: {
         elements: arrayElements,
         status: "unsorted",
         currentStepId: 0,
-        sortSteps: [arrayElements],
+        sortSteps: getFirstStep(arrayElements, length),
         length,
         initialOrder
       },
@@ -46,9 +47,14 @@ class App extends Component {
       }, this.state.sortInterval);
   }
 
-  updateArrayState = arrayState => {
+  updateArrayState = (arrayState, isWithRest) => {
     const array = { ...this.state.array };
     Object.keys(arrayState).forEach(key => (array[key] = arrayState[key]));
+    if (isWithRest) {
+      array.status = "unsorted";
+      array.currentStepId = 0;
+      array.sortSteps = getFirstStep(array.elements, array.length);
+    }
     this.setState({ array });
   };
 
@@ -56,36 +62,35 @@ class App extends Component {
     const array = { ...this.state.array };
     let { sortSteps, currentStepId, status } = array;
     if (status === "unsorted") return;
+
     if (type === "forward") {
-      if (currentStepId + 1 === sortSteps.length) {
-        status = "sorted";
-      } else currentStepId++;
-    } else if (currentStepId - 1 >= 0) currentStepId--;
+      if (currentStepId + 1 === sortSteps.length) status = "sorted";
+      else currentStepId++;
+    } else if (currentStepId - 1 >= 0) {
+      currentStepId--;
+      status = "pausedSorting";
+    }
 
     this.updateArrayState({ status, currentStepId });
   };
 
   startSort = () => {
     const array = { ...this.state.array };
-    const { elements, status } = array;
+    const { sortSteps, status } = array;
+    const firstStep = sortSteps[0];
     if (status === "unsorted") {
-      const sortSteps = [elements, ...sortWithSteps([...elements], this.state.sortAlgorithm)];
+      const sortSteps = [firstStep, ...sortWithSteps([...firstStep], this.state.sortAlgorithm)];
       this.updateArrayState({ status: "pausedSorting", sortSteps });
     }
   };
 
   runSort = () => {
     const array = { ...this.state.array };
-    if (array.status === "pausedSorting") {
-      array.status = "sorting";
-      this.setState({ array });
-    }
+    if (array.status === "pausedSorting") this.updateArrayState({ status: "sorting" });
   };
 
   pauseSort = () => {
-    const array = { ...this.state.array };
-    array.status = "pausedSorting";
-    this.setState({ array });
+    this.updateArrayState({ status: "pausedSorting" });
   };
 
   mapSliderToInterval = sliderValue => {
@@ -98,26 +103,13 @@ class App extends Component {
   };
 
   recoverArray = () => {
-    const array = { ...this.state.array };
-    array.status = "unsorted";
-    array.currentStepId = 0;
-    array.sortSteps = [array.elements];
-    this.setState({ array });
+    this.updateArrayState({}, true);
   };
 
   generateNewArray = () => {
-    let array = { ...this.state.array };
-    const { length, initialOrder } = array;
-    const arrayElements = generateElements(length, initialOrder);
-    array = {
-      elements: arrayElements,
-      status: "unsorted",
-      currentStepId: 0,
-      sortSteps: [arrayElements],
-      length,
-      initialOrder
-    };
-    this.setState({ array });
+    const array = { ...this.state.array };
+    const arrayElements = generateElements(array.initialOrder);
+    this.updateArrayState({ elements: arrayElements }, true);
   };
 
   changeArrayProp = ({ currentTarget: input }) => {
@@ -128,8 +120,12 @@ class App extends Component {
 
   changeArrayLength = value => {
     const array = { ...this.state.array };
-    array.length = Math.max(value, 1);
-    this.setState({ array });
+    let { status, length } = array;
+    length = Math.max(value, 1);
+
+    if (status === "unsorted") {
+      this.updateArrayState({ length }, true);
+    } else this.updateArrayState({ length });
   };
 
   changeSortProp = ({ currentTarget: input }) => {
@@ -140,7 +136,7 @@ class App extends Component {
 
   render() {
     const { sortAlgorithm, array } = this.state;
-    const { initialOrder } = array;
+    const { initialOrder, length } = array;
     return (
       <React.Fragment>
         <NavBar />
@@ -156,7 +152,7 @@ class App extends Component {
         />
         <ControlBar
           generateNewArray={this.generateNewArray}
-          arrayLength={array.length}
+          arrayLength={length}
           currentOrder={initialOrder}
           changeArrayLength={this.changeArrayLength}
           recoverArray={this.recoverArray}
