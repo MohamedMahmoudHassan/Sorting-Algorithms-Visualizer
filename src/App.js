@@ -39,8 +39,9 @@ class App extends Component {
     };
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProp, prevState) {
     clearInterval(this.sortInterval);
+    if (this.state.array.initialOrder !== prevState.array.initialOrder) this.generateNewArray();
     if (this.state.array.status === "sorting")
       this.sortInterval = setInterval(() => {
         this.applySortStep("forward");
@@ -136,7 +137,7 @@ class App extends Component {
 
   render() {
     const { sortAlgorithm, array } = this.state;
-    const { initialOrder, length } = array;
+    const { initialOrder } = array;
     return (
       <React.Fragment>
         <NavBar />
