@@ -4,7 +4,8 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
 import "nouislider/distribute/nouislider.css";
-import "./assets/css/argon-design-system-react.css";
+import "argon-design-system-react/src/assets/css/argon-design-system-react.css";
+//import "./assets/css/argon-design-system-react.css";
 
 ReactDOM.render(
   <React.StrictMode>
