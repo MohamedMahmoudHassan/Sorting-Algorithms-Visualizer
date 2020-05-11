@@ -7,6 +7,7 @@ const ArrayVisualizer = ({
   runSort,
   pauseSort,
   applySortStep,
+  updateSortInterval,
   recoverArray,
   isSorting,
   isBeforeSort
@@ -26,6 +27,7 @@ const ArrayVisualizer = ({
           runSort={runSort}
           pauseSort={pauseSort}
           applySortStep={applySortStep}
+          updateSortInterval={updateSortInterval}
           recoverArray={recoverArray}
           isSorting={isSorting}
         />

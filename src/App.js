@@ -33,7 +33,7 @@ class App extends Component {
         length,
         initialOrder
       },
-      sortInterval: 100,
+      sortInterval: this.mapSliderToInterval(50),
       sortAlgorithm: "Bubble Sort"
     };
   }
@@ -88,6 +88,15 @@ class App extends Component {
     this.setState({ array });
   };
 
+  mapSliderToInterval = sliderValue => {
+    return (100 - sliderValue) * 5;
+  };
+
+  updateSortInterval = sliderValue => {
+    const sortInterval = this.mapSliderToInterval(sliderValue);
+    this.setState({ sortInterval });
+  };
+
   recoverArray = () => {
     const array = { ...this.state.array };
     array.status = "unsorted";
@@ -130,13 +139,11 @@ class App extends Component {
       <React.Fragment>
         <NavBar />
         <ArrayVisualizer
-          sortInterval={sortInterval}
-          sortAlgorithm={sortAlgorithm}
           elements={array.sortSteps[array.currentStepId]}
-          startSort={this.startSort}
           runSort={this.runSort}
           pauseSort={this.pauseSort}
           applySortStep={this.applySortStep}
+          updateSortInterval={this.updateSortInterval}
           recoverArray={this.recoverArray}
           isSorting={array.status === "sorting"}
           isBeforeSort={array.status !== "unsorted"}

@@ -6,6 +6,7 @@ const VisualizationControlBar = ({
   runSort,
   pauseSort,
   applySortStep,
+  updateSortInterval,
   recoverArray,
   isSorting
 }) => {
@@ -13,8 +14,8 @@ const VisualizationControlBar = ({
     <div className="py-1 bg-default">
       <div className="container">
         <div className="row">
-        <Slider />
-          <div className="mt-4 mt-md-0 col-md-auto" >
+          <Slider title="sortSpeed" handleUpdate={updateSortInterval} />
+          <div className="mt-4 mt-md-0 col-md-auto">
             <VisualizationButton
               handleClick={() => applySortStep("backward")}
               role="step-backward"
