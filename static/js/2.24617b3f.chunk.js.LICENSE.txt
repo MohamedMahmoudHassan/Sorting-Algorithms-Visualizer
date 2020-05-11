@@ -4,6 +4,8 @@ object-assign
 @license MIT
 */
 
+/*! nouislider - 14.4.0 - 5/6/2020 */
+
 /** @license React v0.19.1
  * scheduler.production.min.js
  *
