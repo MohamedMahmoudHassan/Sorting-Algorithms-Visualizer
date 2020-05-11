@@ -1,5 +1,6 @@
 import React from "react";
 import VisualizationButton from "./visualizationButton";
+import Slider from "./slider";
 
 const VisualizationControlBar = ({
   runSort,
@@ -12,7 +13,8 @@ const VisualizationControlBar = ({
     <div className="py-1 bg-default">
       <div className="container">
         <div className="row">
-          <div className="mt-4 mt-md-0 col-md-auto" style={{ margin: "auto" }}>
+        <Slider />
+          <div className="mt-4 mt-md-0 col-md-auto" >
             <VisualizationButton
               handleClick={() => applySortStep("backward")}
               role="step-backward"
