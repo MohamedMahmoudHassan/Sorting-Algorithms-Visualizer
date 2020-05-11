@@ -1,4 +1,4 @@
-export default function shuffleArray(arr, prob) {
+export default function shuffleArray(arr, prob = 1) {
   const length = arr.length;
   for (var i = 0; i < length; i++) {
     const randProb = Math.random();
