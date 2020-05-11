@@ -5,7 +5,6 @@ import Select from "./select";
 import { initialOrdersList } from "./../Util/algorithmsLists";
 
 const ArrayControlBar = ({
-  arrayLength,
   generateNewArray,
   changeArrayLength,
   changeArrayInitialOrder,
@@ -14,7 +13,7 @@ const ArrayControlBar = ({
 }) => {
   return (
     <div className="row">
-      <Input name="length" label="Array Length" value={arrayLength} onChange={changeArrayLength} />
+      <Input label="Array Length" handleUpdate={changeArrayLength} isSorting={isSorting} />
       <Select
         name="initialOrder"
         label="Array Initial Order"

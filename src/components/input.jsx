@@ -1,21 +1,13 @@
 import React from "react";
+import Slider from "./slider";
 
-const Input = ({ label, name, error, isSorting, ...rest }) => {
+const Input = ({ label, handleUpdate, isSorting }) => {
   return (
     <div className="col-sm-6 col-lg-2">
       <div className="mb-2">
         <small className="text-uppercase font-weight-bold">{label}</small>
       </div>
-      <div className="form-group">
-        <input
-          className="form-control-alternative form-control"
-          {...rest}
-          name={name}
-          id={name}
-          key={name}
-          disabled={isSorting}
-        />
-      </div>
+      <Slider handleUpdate={handleUpdate} disabled={isSorting} />
     </div>
   );
 };

@@ -126,6 +126,12 @@ class App extends Component {
     this.setState({ array });
   };
 
+  changeArrayLength = value => {
+    const array = { ...this.state.array };
+    array.length = Math.max(value, 1);
+    this.setState({ array });
+  };
+
   changeSortProp = ({ currentTarget: input }) => {
     const state = { ...this.state };
     state[input.name] = input.value;
@@ -133,7 +139,7 @@ class App extends Component {
   };
 
   render() {
-    const { sortInterval, sortAlgorithm, array } = this.state;
+    const { sortAlgorithm, array } = this.state;
     const { initialOrder } = array;
     return (
       <React.Fragment>
@@ -152,7 +158,7 @@ class App extends Component {
           generateNewArray={this.generateNewArray}
           arrayLength={array.length}
           currentOrder={initialOrder}
-          changeArrayLength={this.changeArrayProp}
+          changeArrayLength={this.changeArrayLength}
           recoverArray={this.recoverArray}
           changeArrayInitialOrder={this.changeArrayProp}
           startSort={this.startSort}
