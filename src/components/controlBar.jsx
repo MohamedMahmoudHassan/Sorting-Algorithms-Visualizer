@@ -4,9 +4,7 @@ import SortControlBar from "./sortControlBar";
 
 const ControlBar = ({
   generateNewArray,
-  arrayLength,
   changeArrayLength,
-  recoverArray,
   changeArrayInitialOrder,
   currentOrder,
   startSort,
@@ -19,9 +17,7 @@ const ControlBar = ({
       <div className="container">
         <ArrayControlBar
           generateNewArray={generateNewArray}
-          arrayLength={arrayLength}
           changeArrayLength={changeArrayLength}
-          recoverArray={recoverArray}
           changeArrayInitialOrder={changeArrayInitialOrder}
           currentOption={currentOrder}
           isSorting={isSorting}

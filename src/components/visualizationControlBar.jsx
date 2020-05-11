@@ -38,7 +38,7 @@ const VisualizationControlBar = ({
               handleClick={recoverArray}
               role="stop"
               size={1}
-              title="Recover Array"
+              title="Exit & Recover Array"
             />
           </div>
         </div>

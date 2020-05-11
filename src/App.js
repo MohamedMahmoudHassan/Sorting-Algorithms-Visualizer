@@ -152,10 +152,8 @@ class App extends Component {
         />
         <ControlBar
           generateNewArray={this.generateNewArray}
-          arrayLength={length}
           currentOrder={initialOrder}
           changeArrayLength={this.changeArrayLength}
-          recoverArray={this.recoverArray}
           changeArrayInitialOrder={this.changeArrayProp}
           startSort={this.startSort}
           changeSortAlgorithm={this.changeSortProp}
