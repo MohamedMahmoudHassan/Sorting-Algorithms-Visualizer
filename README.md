@@ -11,4 +11,5 @@ I guess it can be used as a great educational tool as it shows every step of the
   - Quick Sort.
   - Heap sort.
 
-### You can access the app here: (https://mohamedmahmoudhassan.github.io/Sorting-Algorithms-Visualizer/).
+### You can access the app here: 
+https://mohamedmahmoudhassan.github.io/Sorting-Algorithms-Visualizer/
