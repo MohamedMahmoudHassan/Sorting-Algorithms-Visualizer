@@ -13,7 +13,7 @@ const ControlBar = ({
   isSorting
 }) => {
   return (
-    <div className="py-5 bg-secondary">
+    <div className="py-5 bg-secondary" style={{ width: 1200, margin: "auto" }}>
       <div className="container">
         <ArrayControlBar
           generateNewArray={generateNewArray}
