@@ -1,6 +1,6 @@
 {
-  "homepage": "http://MohamedMahmoudHassan.github.io/Sorting-Visualizer",
-  "name": "sorting-visualizer",
+  "homepage": "http://MohamedMahmoudHassan.github.io/Sorting-Algorithms-Visualizer",
+  "name": "sorting-algorithms-visualizer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
