@@ -8,8 +8,8 @@ I guess it can be great educational tool as it shows every step of the involved 
   - Selection sort.
   - insertion sort.
   - Merge sort.
-  - \st{Quick Sort}.
-  - \st{Heap sort}.
+  - ~~Quick Sort~~.
+  - ~~Heap sort~~.
 
 ### You can access the app here: 
 https://mohamedmahmoudhassan.github.io/Sorting-Algorithms-Visualizer/
